@@ -1,0 +1,7 @@
+__pycache__
+templates
+application/action.py
+application/login.py
+resources/*
+!resources/upload_folder/
+!.gitkeep
