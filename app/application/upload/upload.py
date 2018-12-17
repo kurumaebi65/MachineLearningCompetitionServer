@@ -7,7 +7,6 @@ import io
 import logging
 from flask import Blueprint
 from flask import request, abort, jsonify
-from werkzeug.utils import secure_filename
 import os
 import sys
 sys.path.append('../../')
@@ -16,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Blueprint("upload", __name__)
 
-UPLOAD_FOLDER = '/home/app/resources/upload_folder'
+
 ALLOWED_EXTENSIONS = set(['csv'])
 
 
