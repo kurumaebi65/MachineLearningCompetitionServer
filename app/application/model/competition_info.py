@@ -11,12 +11,13 @@ class CompetitionInformationModel:
         self.db = self.client.mlcompetition
         self.collection = self.db.competition_information
 
-    def register_competition_imformation(self, competition_name, competition_description, competition_type, training_data_path, test_data_path):
+    def register_competition_imformation(self, competition_name, competition_description, competition_type, training_data_path, test_data_path,correct_data_path):
         new_post = {'competition_name': competition_name,
                     'competition_description': competition_description,
                     'competition_type' : competition_type,
                     'training_data_path': training_data_path,
-                    'test_data_path': test_data_path}
+                    'test_data_path': test_data_path,
+                    'correct_data_path': correct_data_path}
         self.collection.insert_one(new_post)
         return
 

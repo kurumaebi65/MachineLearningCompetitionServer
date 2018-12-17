@@ -27,6 +27,12 @@
           <input type="file" id="test" accept=".csv" @change="updateTestFile">
         </td>
       </tr>
+      <tr>
+        <td>correct file</td>
+        <td>
+          <input type="file" id="test" accept=".csv" @change="updateCorrectFile">
+        </td>
+      </tr>
     </table>
     <input type="button" value="submit" @click="submit">
     {{error_message}}
@@ -49,6 +55,7 @@ export default {
       competition_description_preview: "",
       training_file: null,
       test_file: null,
+      correct_file: null,
       error_message: ""
     };
   },
@@ -68,6 +75,11 @@ export default {
       let files = e.target.files;
       this.test_file = files[0];
     },
+    updateCorrectFile: function(e) {
+      e.preventDefault();
+      let files = e.target.files;
+      this.correct_file = files[0];
+    },
     submit: function() {
       if (this.training_file === null || this.test_file === null) {
         this.error_message = "please upload file";
@@ -84,6 +96,7 @@ export default {
       let formData = new FormData();
       formData.append("training_file", this.training_file);
       formData.append("test_file",this.test_file);
+      formData.append("correct_file",this.correct_file);
       formData.append("competition_name",this.competition_name);
       formData.append("competition_description", this.competition_description)
       let config = {
